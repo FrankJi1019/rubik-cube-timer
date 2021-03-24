@@ -1,0 +1,2 @@
+# RubikCubeTimer
+How to use:
