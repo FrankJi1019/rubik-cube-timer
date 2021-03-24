@@ -1,7 +1,7 @@
 from MainScreen import MainScreen
 from ReadyScreen import ReadyScreen
 from TimerScreen import TimerScreen
-from DatabaseManager import DatabaseManager
+from DatabaseManager2 import DatabaseManager
 from Setting import *
 
 
