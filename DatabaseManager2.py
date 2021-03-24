@@ -11,7 +11,7 @@ class DatabaseManager:
         self.__countResult = 0
 
     def readPreviousData(self):
-        sql = "SELECT * FROM cubing_timer"
+        sql = "SELECT time, state, scramble, date FROM cubing_timer"
         self.__cursor.execute(sql)
         allSolves = self.__cursor.fetchall()
         self.__countResult = len(allSolves)
@@ -25,10 +25,10 @@ class DatabaseManager:
         return results
 
     def writeToDB(self, results):
-        date = time.strftime("%Y-%m-%d", time.localtime())
+        date = time.strftime("%Y.%m.%d", time.localtime())
         for i in range(self.__countResult, len(results)):
             result = results[i]
-            sql = "INSERT INTO cubing_timer (time, state, scramble, date) VALUES ({}, {}, \"{}\", {})".format(
+            sql = "INSERT INTO cubing_timer (time, state, scramble, date) VALUES ({}, {}, \"{}\", \"{}\")".format(
                 result.getTime(), result.getState(), result.getScramble(), date)
             self.__cursor.execute(sql)
             self.__connection.commit()
